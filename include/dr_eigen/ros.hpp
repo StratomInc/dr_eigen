@@ -13,8 +13,9 @@ inline Eigen::Vector3d toEigen(geometry_msgs::msg::Point const& vector)
   return Eigen::Vector3d(vector.x, vector.y, vector.z);
 }
 
-inline Eigen::Vector3d toEigen(geometry_msgs::msg::Vector3 const & vector) {
-	return Eigen::Vector3d(vector.x, vector.y, vector.z);
+inline Eigen::Vector3d toEigen(geometry_msgs::msg::Vector3 const& vector)
+{
+  return Eigen::Vector3d(vector.x, vector.y, vector.z);
 }
 
 /// Convert a ROS Quaternion to an Eigen quaternion.
@@ -29,8 +30,9 @@ inline Eigen::Isometry3d toEigen(geometry_msgs::msg::Pose& pose)
   return translate(toEigen(pose.position)) * toEigen(pose.orientation);
 }
 
-inline Eigen::Isometry3d toEigen(geometry_msgs::msg::Transform & transform) {
-	return translate(toEigen(transform.translation)) * toEigen(transform.rotation);
+inline Eigen::Isometry3d toEigen(geometry_msgs::msg::Transform& transform)
+{
+  return translate(toEigen(transform.translation)) * toEigen(transform.rotation);
 }
 
 /// Convert an Eigen vector to a ROS Point.
@@ -69,12 +71,13 @@ inline geometry_msgs::msg::Pose toRosPose(Eigen::Isometry3d const& pose)
   return result;
 }
 
-inline geometry_msgs::msg::Vector3 toRosVector3(Eigen::Vector3d const & vector) {
-	geometry_msgs::msg::Vector3 result;
-	result.x = vector.x();
-	result.y = vector.y();
-	result.z = vector.z();
-	return result;
+inline geometry_msgs::msg::Vector3 toRosVector3(Eigen::Vector3d const& vector)
+{
+  geometry_msgs::msg::Vector3 result;
+  result.x = vector.x();
+  result.y = vector.y();
+  result.z = vector.z();
+  return result;
 }
 
 }  // namespace dr
